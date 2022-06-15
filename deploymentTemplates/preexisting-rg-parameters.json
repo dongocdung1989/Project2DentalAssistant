@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appId": {
-            "value": ""
+            "value": "e2659b8a-cdda-41d4-9ff3-7c9797949d44"
         },
         "appSecret": {
-            "value": ""
+            "value": "7a*SZ0>u9OB]O)vV0aJbmx90S"
         },
         "botId": {
-            "value": ""
+            "value": "finalprojectchatbot"
         },
         "botSku": {
-            "value": ""
+            "value": "S1"
         },
         "newAppServicePlanName": {
             "value": ""
@@ -30,10 +30,10 @@
             "value": ""
         },
         "existingAppServicePlan": {
-            "value": ""
+            "value": "FinalProjectChatbot"
         },
         "newWebAppName": {
-            "value": ""
+            "value": "finalprojectchatbot"
         }
     }
 }

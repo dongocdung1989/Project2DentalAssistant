@@ -3,29 +3,60 @@
 
 const { ActivityHandler, MessageFactory } = require('botbuilder');
 
-class EchoBot extends ActivityHandler {
-    constructor() {
+// temp block
+// const { QnAMaker } = require('botbuilder-ai');
+const DentistScheduler = require('./dentistscheduler');
+const IntentRecognizer = require("./intentrecognizer")
+
+class DentaBot extends ActivityHandler {
+    constructor(configuration, qnaOptions) {
+        // call the parent constructor
         super();
-        // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
+        if (!configuration) throw new Error('[QnaMakerBot]: Missing parameter. configuration is required');
+
+        // create a QnAMaker connector
+        // temp block
+        // this.QnAMaker = new QnAMaker()
+       
+        // create a DentistScheduler connector
+      
+        // create a IntentRecognizer connector
+
+
         this.onMessage(async (context, next) => {
-            const replyText = `Echo: ${ context.activity.text }`;
-            await context.sendActivity(MessageFactory.text(replyText, replyText));
-            // By calling next() you ensure that the next BotHandler is run.
+            // send user input to QnA Maker and collect the response in a variable
+            // don't forget to use the 'await' keyword
+          
+            // send user input to IntentRecognizer and collect the response in a variable
+            // don't forget 'await'
+                     
+            // determine which service to respond with based on the results from LUIS //
+
+            // if(top intent is intentA and confidence greater than 50){
+            //  doSomething();
+            //  await context.sendActivity();
+            //  await next();
+            //  return;
+            // }
+            // else {...}
+             
             await next();
-        });
+    });
 
         this.onMembersAdded(async (context, next) => {
-            const membersAdded = context.activity.membersAdded;
-            const welcomeText = 'Hello and welcome!';
-            for (let cnt = 0; cnt < membersAdded.length; ++cnt) {
-                if (membersAdded[cnt].id !== context.activity.recipient.id) {
-                    await context.sendActivity(MessageFactory.text(welcomeText, welcomeText));
-                }
+        const membersAdded = context.activity.membersAdded;
+        //write a custom greeting
+        const welcomeText = 'Welcome User';
+
+        for (let cnt = 0; cnt < membersAdded.length; ++cnt) {
+            if (membersAdded[cnt].id !== context.activity.recipient.id) {
+                await context.sendActivity(MessageFactory.text(welcomeText, welcomeText));
             }
-            // By calling next() you ensure that the next BotHandler is run.
-            await next();
-        });
+        }
+        // by calling next() you ensure that the next BotHandler is run.
+        await next();
+    });
     }
 }
 
-module.exports.EchoBot = EchoBot;
+module.exports.DentaBot = DentaBot;
