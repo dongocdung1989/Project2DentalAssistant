@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'dungdoappservices'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_55D4083CC8E244CFA6C626FBAD97F4DC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5380C613387D436999449127BBFEF94E }}
           package: .
